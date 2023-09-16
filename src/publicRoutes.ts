@@ -7,5 +7,5 @@ router.get('/', (req, res) => {
     res.send('Estamos online!');
 });
 
-router.post("/auth", authenticateUserController.handle);
+router.post("/login", authenticateUserController.handle);
 export default router;
