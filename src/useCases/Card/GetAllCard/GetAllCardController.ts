@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import GetCardUseCase from './GetAllCardUseCase';
+import GetAllCardUseCase from './GetAllCardUseCase';
 import logger from '../../../config/logger';
 
-export default class GetRoleController {
-  constructor(private GetCardUseCase: GetCardUseCase) { }
+export default class GetAllCardController {
+  constructor(private GetAllCardUseCase: GetAllCardUseCase) { }
 
   handle = async (req: Request, res: Response): Promise<Response> => {
     try {
-      const result = await this.GetCardUseCase.execute();
+      const result = await this.GetAllCardUseCase.execute();
       return res.status(200).json(result);
     } catch (err) {
       logger.error(err);

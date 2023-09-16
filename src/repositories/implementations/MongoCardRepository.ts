@@ -7,4 +7,8 @@ export default class MongoCardRepository implements ICardRepository {
     const allCards = await CardModel.find();
     return allCards.map((card) => new Card(card.toJSON()));
   }
+  async save(card: Card): Promise<Card> {
+    const newCard = await CardModel.create(card);
+    return newCard.toJSON();
+  }
 }

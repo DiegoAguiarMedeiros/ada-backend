@@ -2,7 +2,7 @@ import { ICardRepository } from '../../../repositories/ICardRepository';
 
 import Card from '../../../entities/Card';
 
-export default class GetCardUseCase {
+export default class GetAllCardUseCase {
   constructor(
     private CardRepository: ICardRepository,
   ) { }

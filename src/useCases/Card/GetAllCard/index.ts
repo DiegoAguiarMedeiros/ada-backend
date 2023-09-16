@@ -1,14 +1,14 @@
-import SequilezeRoleRepository from '../../../repositories/implementations/MongoCardRepository';
+import SequilezeCardRepository from '../../../repositories/implementations/MongoCardRepository';
 
 import GetAllCardUseCase from './GetAllCardUseCase';
 import GetAllCardController from './GetAllCardController';
 
-const sequilezeRoleRepository = new SequilezeRoleRepository();
+const sequilezeCardRepository = new SequilezeCardRepository();
 
-const getRoleUseCase = new GetAllCardUseCase(
-  sequilezeRoleRepository,
+const getCardUseCase = new GetAllCardUseCase(
+  sequilezeCardRepository,
 );
 
-const getAllCardController = new GetAllCardController(getRoleUseCase);
+const getAllCardController = new GetAllCardController(getCardUseCase);
 
 export default getAllCardController;

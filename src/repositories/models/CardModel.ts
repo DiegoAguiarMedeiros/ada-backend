@@ -13,6 +13,11 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  user: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'User',
+  },
 });
 
 const Card = mongoose.model<unknown>('Card', CardSchema);
