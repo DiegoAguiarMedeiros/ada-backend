@@ -12,6 +12,7 @@ export default class CreateCardUseCase {
     lista:string,
     userId:string
     ): Promise<Card> => {
+      
     const card = new Card({
       titulo,
       conteudo,

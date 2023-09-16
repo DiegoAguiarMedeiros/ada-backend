@@ -1,23 +1,24 @@
 import { Request, Response } from 'express';
-import CreateUseCase from './CreateCardUseCase';
+import UpdateCardCardUseCase from './UpdateCardUseCase';
 import logger from '../../../config/logger';
 
-export default class CreateCardController {
-  constructor(private CreateUseCase: CreateUseCase) { }
+export default class UpdateCardCardController {
+  constructor(private UpdateCardCardUseCase: UpdateCardCardUseCase) { }
 
   handle = async (req: Request, res: Response): Promise<Response> => {
-    const { body,user } = req;
+    const { body, params  } = req;
+    const cardId = params.cardId;
     const {
       titulo,
       conteudo,
       lista,
     } = body;
     try {
-      const result = await this.CreateUseCase.execute(
+      const result = await this.UpdateCardCardUseCase.execute(
         titulo,
         conteudo,
         lista,
-        user._id);
+        cardId);
       return res.status(200).json(result);
     } catch (err) {
       logger.error(err);

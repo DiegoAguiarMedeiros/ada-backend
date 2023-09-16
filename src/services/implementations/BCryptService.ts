@@ -8,8 +8,6 @@ export default class BCryptService implements ICryptService {
   }
 
   compare(value: string, hash: string): Promise<boolean> {
-    console.log('value',value)
-    console.log('hash',hash)
     return bcrypt.compare(value, hash);
   }
 }
