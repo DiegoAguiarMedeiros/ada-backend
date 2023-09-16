@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import logger from './config/logger';
 import initDB from './config/mongoConfig';
 import publicRoutes from './publicRoutes';
-
+import privateRoutes from './privateRoutes';
 initDB();
 
 const app = express();
@@ -34,6 +34,8 @@ app.use((req, res, next) => {
 
 app.use(morgan('dev'));
 app.use(publicRoutes);
+
+app.use(privateRoutes);
 
 const port = process.env.PORT || 5000;
 

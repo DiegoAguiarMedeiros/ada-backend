@@ -10,4 +10,8 @@ export default class MongoUserRepository implements IUserRepository {
     );
     return findedUser ? new User(findedUser.toJSON()) : null;
   }
+  async findById(userId: string): Promise<User> {
+    const findedUser = await UserModel.findOne({ _id: userId });
+    return findedUser ? new User(findedUser.toJSON()) : null;
+  }
 }

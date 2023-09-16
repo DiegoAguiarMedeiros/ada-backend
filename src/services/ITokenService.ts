@@ -1,4 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface ITokenService {
-    sign(payload: unknown): string;
-    verify(token: string): unknown;
+    sign(payload: any): string;
+    verify(token: string): any;
   }
