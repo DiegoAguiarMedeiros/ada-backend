@@ -3,6 +3,14 @@ import Card from '../../entities/Card';
 import CardModel from '../models/CardModel';
 
 export default class MongoCardRepository implements ICardRepository {
+  async delete(cardId: string): Promise<boolean> {
+    const findedCard = await CardModel.findOne({ _id: cardId });
+    if(findedCard !== null){
+      await CardModel.findOneAndDelete({ _id: cardId });
+      return true;
+    }
+    return false;
+  }
   async findById(cardId: string): Promise<Card> {
     const findedCard = await CardModel.findOne({ _id: cardId });
     return findedCard ? new Card(findedCard.toJSON()) : null;
