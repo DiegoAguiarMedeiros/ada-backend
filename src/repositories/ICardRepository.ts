@@ -1,6 +1,6 @@
 import Card from "../entities/Card";
 
 export interface ICardRepository {
-    getAll(): Promise<Card[]>;
+    getAll(userId:string): Promise<Card[]>;
     save(card: Card): Promise<Card>;
 }

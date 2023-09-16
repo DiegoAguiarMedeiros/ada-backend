@@ -7,7 +7,7 @@ export default class GetAllCardUseCase {
     private CardRepository: ICardRepository,
   ) { }
 
-  execute = async (): Promise<Card[]> => {
-    return await this.CardRepository.getAll()
+  execute = async (userId:string): Promise<Card[]> => {
+    return await this.CardRepository.getAll(userId)
   };
 }

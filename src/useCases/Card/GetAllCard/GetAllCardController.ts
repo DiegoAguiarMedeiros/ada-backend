@@ -6,8 +6,9 @@ export default class GetAllCardController {
   constructor(private GetAllCardUseCase: GetAllCardUseCase) { }
 
   handle = async (req: Request, res: Response): Promise<Response> => {
+    const { user } = req;
     try {
-      const result = await this.GetAllCardUseCase.execute();
+      const result = await this.GetAllCardUseCase.execute(user._id);
       return res.status(200).json(result);
     } catch (err) {
       logger.error(err);
